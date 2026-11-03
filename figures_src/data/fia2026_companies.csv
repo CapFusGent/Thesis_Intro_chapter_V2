@@ -1,0 +1,58 @@
+# Source: FIA, The Global Fusion Industry Report 2026, company profiles (55 companies with a profile).
+# family: grouping used in the thesis figures; funding: total declared funding in USD (blank = not disclosed).
+company,country,founded,family,specific_approach,funding_usd
+Acceleron Fusion,USA,2023,other,Muon-catalysed fusion,26500000
+Anubal Fusion,India,2024,laser / inertial,Laser-driven inertial confinement,500000
+ASPL Fusion,India,2025,magnetic mirror,Gas dynamic trap,2000000
+Astral Systems,UK,2021,other,Inertial-electrostatic lattice confinement,40000000
+Avalanche Energy,USA,2018,magnetic mirror,Magnetic-electrostatic confinement,104200000
+Blue Laser Fusion,USA,2022,laser / inertial,Laser-driven inertial confinement,37500000
+Commonwealth Fusion Systems,USA,2018,tokamak,Tokamak,3000000000
+Crossfield Fusion,UK,2019,other,Augmented beam-target,500000
+Deutelio,Switzerland,2022,other,Levitron-type poloidal configuration,540000
+Energy Matter Conversion (EMC2),USA,1985,other,High-beta cusp with electrostatic well,40000000
+Energy Singularity,China,2021,tokamak,Tokamak,112500000
+ENN,China,2017,spherical tokamak,Spherical tokamak,720000000
+EX-Fusion,Japan,2021,laser / inertial,Laser-driven inertial confinement,38000000
+First Light Fusion,UK,2011,laser / inertial,Hybrid fast ignition,156379800
+Focused Energy,Germany,2021,laser / inertial,Laser-driven inertial confinement,500000000
+Fuse,USA,2019,pinch,MagLIF,65000000
+Gauss Fusion,Germany,2022,stellarator,Stellarator,31530930
+General Fusion,Canada,2002,other,Magnetised target fusion,500000000
+GenF,France,2024,laser / inertial,Laser-driven inertial confinement,10800000
+Helical Fusion,Japan,2021,stellarator,Stellarator,65000000
+Helicity Space,USA,2019,other,Plectoneme (magneto-inertial),10000000
+Helion,USA,2013,other,Field-reversed configuration (magneto-inertial),1500000000
+Horne Technologies,USA,2008,other,Spindle cusp / inertial-electrostatic,4772000
+Inertia Enterprises,USA,2024,laser / inertial,Laser-driven indirect drive,450000000
+Infroton Fusion,USA,2024,laser / inertial,Laser-driven cavity pressure acceleration,
+Kyoto Fusioneering,Japan,2019,other,Technology supplier (approach-agnostic),143854890
+LaserFusionX,USA,2022,laser / inertial,Laser-driven inertial confinement,458000
+Liberty Fusion,USA,2025,other,Plasma-jet-driven magneto-inertial fusion,
+Longview Fusion Energy Systems,USA,2021,laser / inertial,Laser-driven inertial confinement,
+LPPFusion,USA,2003,pinch,Dense plasma focus,
+Maritime Fusion,USA,2025,tokamak,Tokamak,4700000
+Marvel Fusion,Germany,2019,laser / inertial,Laser-driven inertial confinement,440000000
+MIFTI Fusion,USA,2009,pinch,Z-pinch,24000000
+NearStar Fusion,USA,2021,other,Magnetised target impact fusion,2000000
+Novatron Fusion Group,Sweden,2019,magnetic mirror,Open magnetic confinement,34449240
+NT-Tao,Israel,2019,stellarator,Compact pulsed stellarator,34000000
+OpenStar Technologies,New Zealand,2021,other,Levitated dipole,29400000
+Pacific Fusion,USA,2023,laser / inertial,Pulser-driven inertial confinement,1000000000
+Pranos Fusion,India,2024,tokamak,Tokamak,7217000
+Princeton Satellite Systems,USA,1992,other,Field-reversed configuration,100000
+Proxima Fusion,Germany,2023,stellarator,Stellarator,752000000
+Realta Fusion,USA,2022,magnetic mirror,Tandem magnetic mirror,58800000
+Renaissance Fusion,France,2020,stellarator,Stellarator,65675200
+SHINE Technologies,USA,2010,other,Beam-target and plasma-target,1100000000
+Startorus Fusion,China,2021,spherical tokamak,Spherical tokamak,138900000
+Stellarex Energy,Canada,2022,stellarator,Stellarator,
+TAE Technologies,USA,1998,other,Field-reversed configuration,1500000000
+Terra Fusion Energy,USA,2024,magnetic mirror,Centrifugal magnetic mirror,1500000
+Thea Energy,USA,2022,stellarator,Stellarator,130000000
+Tibbar Plasma Technologies,USA,2015,other,Magnetic-electrostatic confinement,4790860
+Tokamak Energy,UK,2009,spherical tokamak,Spherical tokamak,335000000
+Type One Energy,USA,2019,stellarator,Stellarator,200000000
+Xcimer Energy,USA,2021,laser / inertial,Laser-driven inertial confinement,178000000
+Yan Fusion,China,2025,stellarator,Stellarator,293000000
+Zap Energy,USA,2017,pinch,Sheared-flow-stabilised Z-pinch,338000000
