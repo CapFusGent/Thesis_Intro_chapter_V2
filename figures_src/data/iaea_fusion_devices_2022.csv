@@ -1,0 +1,135 @@
+# Source: IAEA, World Survey of Fusion Devices 2022 (CRCP-FUS-001), summary Tables 2-6.
+# Status as reported in 2022. TORPEX (Switzerland) omitted: status not given in Table 5.
+# JET ended operations at the end of 2023 (listed as operational in the 2022 survey).
+device,country,configuration,status,ownership,demo
+NOVA-FURG,Brazil,tokamak,operational,public,0
+ETE,Brazil,spherical tokamak,operational,public,0
+TCABR,Brazil,tokamak,operational,public,0
+STOR-M,Canada,tokamak,operational,public,0
+EAST,China,tokamak,operational,public,0
+EXL-50,China,spherical tokamak,operational,private,0
+HL-2A,China,tokamak,operational,public,0
+HL-2M,China,tokamak,operational,public,0
+J-TEXT,China,tokamak,operational,public,0
+SUNIST-1,China,spherical tokamak,operational,public,0
+MEDUSA-CR,Costa Rica,spherical tokamak,operational,public,0
+GOLEM,Czech Republic,tokamak,operational,public,0
+COMPASS-U,Czech Republic,tokamak,under construction,public,0
+NORTH,Denmark,spherical tokamak,operational,public,0
+EGYPTOR,Egypt,tokamak,operational,public,0
+WEST,France,tokamak,operational,public,0
+ITER,France,tokamak,under construction,public,0
+ASDEX Upgrade,Germany,tokamak,operational,public,0
+ADITYA-U,India,tokamak,operational,public,0
+SST-1,India,tokamak,operational,public,0
+SSST,India,spherical tokamak,under construction,public,0
+ALVAND,Iran,tokamak,operational,public,0
+DAMAVAND,Iran,tokamak,operational,public,0
+IR-T1,Iran,tokamak,operational,public,0
+DTT,Italy,tokamak,planned,public,0
+FTU,Italy,tokamak,operational,public,0
+LATE,Japan,spherical tokamak,operational,public,0
+PLATO,Japan,tokamak,planned,public,0
+QUEST,Japan,spherical tokamak,operational,public,0
+HYBTOK-II,Japan,tokamak,operational,public,0
+TOKASTAR-2,Japan,tokamak,operational,public,0
+JT-60SA,Japan,tokamak,operational,public,0
+TST-2,Japan,spherical tokamak,operational,public,0
+UTST,Japan,spherical tokamak,operational,public,0
+PHiX,Japan,tokamak,operational,public,0
+HIST,Japan,spherical tokamak,operational,public,0
+KTM,Kazakhstan,spherical tokamak,operational,public,0
+LIBTOR,Libya,tokamak,operational,public,0
+GLAST-III,Pakistan,spherical tokamak,operational,public,0
+MT-1,Pakistan,spherical tokamak,operational,public,0
+MT-2,Pakistan,spherical tokamak,under construction,public,0
+PST,Pakistan,spherical tokamak,planned,public,0
+ISTTOK,Portugal,tokamak,operational,public,0
+KSTAR,Republic of Korea,tokamak,operational,public,0
+VEST,Republic of Korea,spherical tokamak,operational,public,0
+FT-2,Russian Federation,tokamak,operational,public,0
+GLOBUS-M2,Russian Federation,spherical tokamak,operational,public,0
+TUMAN-3M,Russian Federation,tokamak,operational,public,0
+T-15MD,Russian Federation,tokamak,under construction,public,0
+GUTTA,Russian Federation,spherical tokamak,operational,public,0
+T-11M,Russian Federation,tokamak,operational,public,0
+SMART,Spain,spherical tokamak,planned,public,0
+TCV,Switzerland,tokamak,operational,public,0
+TT-1,Thailand,tokamak,under construction,public,0
+JET,United Kingdom,tokamak,operational,public,0
+ST40,United Kingdom,spherical tokamak,operational,private,0
+MAST-U,United Kingdom,spherical tokamak,operational,public,0
+HBT-EP,United States,tokamak,operational,public,0
+SPARC,United States,tokamak,under construction,private,0
+DIII-D,United States,tokamak,operational,public,0
+LTX-beta,United States,spherical tokamak,operational,public,0
+NSTX-U,United States,spherical tokamak,operational,public,0
+PEGASUS-III,United States,spherical tokamak,operational,public,0
+CFQS,China,stellarator,planned,public,0
+SCR-1,Costa Rica,stellarator,operational,public,0
+Renaissance Fusion,France,stellarator,planned,private,0
+Wendelstein 7-X,Germany,stellarator,operational,public,0
+TJ-K,Germany,stellarator,operational,public,0
+LHD,Japan,stellarator,operational,public,0
+Heliotron J,Japan,stellarator,operational,public,0
+TJ-II,Spain,stellarator,operational,public,0
+URAGAN-2M,Ukraine,stellarator,operational,public,0
+URAGAN-3M,Ukraine,stellarator,operational,public,0
+CTH,United States,stellarator,operational,public,0
+HIDRA,United States,stellarator,operational,public,0
+HSX,United States,stellarator,operational,public,0
+HB11,Australia,laser / inertial,planned,private,0
+LMJ,France,laser / inertial,operational,public,0
+Marvel Fusion,Germany,laser / inertial,planned,private,0
+GEKKO XII,Japan,laser / inertial,operational,public,0
+LFEX,Japan,laser / inertial,operational,public,0
+First Light Fusion,United Kingdom,laser / inertial,operational,private,0
+Innoven Energy,United States,laser / inertial,planned,private,0
+NIF,United States,laser / inertial,operational,public,0
+OMEGA,United States,laser / inertial,operational,public,0
+General Fusion,Canada,other,under construction,private,0
+KTX,China,pinch,operational,public,0
+TORIX,France,other,operational,public,0
+RFX,Italy,pinch,operational,public,0
+RELAX,Japan,pinch,operational,public,0
+UH-CTI,Japan,other,operational,public,0
+FAT-CM,Japan,other,operational,private,0
+RT-1,Japan,other,operational,public,0
+UH-MCPG1,Japan,other,operational,public,0
+GAMMA 10/PDX,Japan,magnetic mirror,operational,public,0
+Pilot GAMMA PDX-SC,Japan,magnetic mirror,under construction,public,0
+CAT,Russian Federation,magnetic mirror,under construction,public,0
+GDMT,Russian Federation,magnetic mirror,planned,public,0
+GDMT Core,Russian Federation,magnetic mirror,planned,public,0
+GDT,Russian Federation,magnetic mirror,operational,public,0
+GOL-NB,Russian Federation,magnetic mirror,operational,public,0
+SMOLA,Russian Federation,magnetic mirror,operational,public,0
+EXTRAP T2R,Sweden,pinch,operational,public,0
+Fusion Power Core,United States,other,planned,private,0
+IDCD,United States,other,operational,private,0
+Helicity Drive,United States,other,planned,private,0
+Polaris,United States,other,planned,private,0
+Trenta,United States,other,operational,private,0
+Horne Hybrid Reactor,United States,other,under construction,private,0
+PJMIF,United States,other,planned,private,0
+Focus Fusion,United States,other,operational,private,0
+CFR,United States,magnetic mirror,operational,public,0
+MIFTI,United States,pinch,planned,private,0
+PFRC,United States,other,planned,private,0
+Z Machine,United States,pinch,operational,public,0
+Norman (C-2W),United States,other,operational,private,0
+Copernicus,United States,other,under construction,private,0
+ZEBRA,United States,pinch,operational,public,0
+MST,United States,pinch,operational,private,0
+FuZE-Q,United States,pinch,operational,private,0
+CFETR,China,tokamak,planned,public,1
+EU-DEMO,European Union,tokamak,planned,public,1
+J-DEMO,Japan,tokamak,planned,public,1
+K-DEMO,Republic of Korea,tokamak,planned,public,1
+DEMO-RF,Russian Federation,tokamak,planned,public,1
+FDP,United Kingdom,other,planned,public-private,1
+ST-E1,United Kingdom,spherical tokamak,planned,private,1
+STEP,United Kingdom,spherical tokamak,planned,public,1
+ARC,United States,tokamak,planned,private,1
+GA-FPP,United States,tokamak,planned,private,1
+Da Vinci,United States,other,planned,private,1

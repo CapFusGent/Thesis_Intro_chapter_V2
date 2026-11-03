@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{comment}
+\usepackage{rotating} % sidewaysfigure for full-page landscape figures
 \usepackage[version=4]{mhchem} % for \ce{CO2}
 \newcommand\BackgroundPic{%
 \put(0,0){%
@@ -610,6 +611,26 @@ US\$10~billion, and more than 160 fusion devices are operating, under
 construction or planned~\cite{iaea_wfo_2025}. Plasma physics results therefore
 increasingly meet deployment questions such as licensing, supply chains,
 capital investment and long-term reliability.
+Figure~\ref{fig:fusion_devices_world} gives an overview of the experimental
+devices and power-plant designs catalogued by the IAEA: tokamaks, including
+spherical tokamaks, make up more than half of them, followed by a wide variety
+of alternative concepts, stellarators and laser-driven devices. The United
+States, Japan and Russia host the largest and most diverse programmes, and
+private companies are concentrated in alternative concepts and compact
+devices~\cite{iaea_wsfd_2022}.
+
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=\textheight]{Figures/fusion_devices_world.pdf}
+    \caption{Fusion devices of the world as catalogued in the IAEA World
+    Survey of Fusion Devices 2022~\cite{iaea_wsfd_2022}. Each tile is a
+    country (or, for EU-DEMO, the European Union), placed roughly at its
+    geographic position; each symbol is a device. Shape and colour give the
+    design, the fill gives the status, and a centre dot marks DEMO-class
+    power-plant designs. The bars summarise the 131 devices by design. Status
+    as reported in 2022; JET ended operations at the end of 2023.}
+    \label{fig:fusion_devices_world}
+\end{sidewaysfigure}
 
 \paragraph{Magnetic confinement.}
 JET held the record for fusion power for over two decades, with a fusion gain
