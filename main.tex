@@ -96,8 +96,8 @@ The binding energy per nucleon reaches a maximum around \({}^{56}\mathrm{Fe}\), 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{Figures/nuclear_binding.png}
-  \caption[Average nuclear binding energy per nucleon as a function of mass number]{Average nuclear binding energy per nucleon as a function of mass number. The curve illustrates the increase in stability for light nuclei up to iron (\(^{56}\mathrm{Fe}\)), beyond which fission becomes energetically favourable. Adapted from Lilley~\protect\cite{lilley2009nuclear}.}
+  \includegraphics[width=\linewidth]{Figures/nuclear_binding.pdf}
+  \caption[Average nuclear binding energy per nucleon as a function of mass number]{Average nuclear binding energy per nucleon as a function of mass number. The curve illustrates the increase in stability for light nuclei up to iron (\(^{56}\mathrm{Fe}\)), beyond which fission becomes energetically favourable. Points: measured values for selected nuclides~\protect\cite{wang2021ame2020}; line: semi-empirical mass formula~\protect\cite{lilley2009nuclear}.}
   \label{fig:nbe-curve}
 \end{figure}
 
@@ -109,8 +109,8 @@ The interaction between two nuclei can be described in terms of an effective pot
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{Figures/coulomb_barrier.png}
-  \caption{Schematic representation of the interaction potential between two nuclei, showing the repulsive Coulomb potential at large distances and the attractive nuclear potential at short distances. The resulting Coulomb barrier must be overcome or penetrated for fusion to occur. Adapted from~\cite{rousseau2019jet}.}
+  \includegraphics[width=\linewidth]{Figures/coulomb_barrier.pdf}
+  \caption{Schematic representation of the interaction potential between two nuclei, showing the repulsive Coulomb potential at large distances and the attractive nuclear potential at short distances. The resulting Coulomb barrier must be overcome or, by quantum tunnelling, penetrated for fusion to occur.}
   \label{fig:coulomb}
 \end{figure}
 
@@ -160,8 +160,8 @@ Figure~\ref{fig:xs} shows the fusion cross-sections for several reactions discus
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{Figures/cross_section_fusion.png}
-  \caption{Fusion cross-sections as a function of particle energy for selected reactions. The strong dependence on energy and reaction type highlights the favourable characteristics of the \(D\)--\(T\) reaction compared to alternatives. Adapted from~\cite{freidberg2007plasma}.}
+  \includegraphics[width=\linewidth]{Figures/cross_section_fusion.pdf}
+  \caption{Fusion cross-sections as a function of particle energy for selected reactions. The strong dependence on energy and reaction type highlights the favourable characteristics of the \(D\)--\(T\) reaction compared to alternatives. Computed from the parametrisation in the NRL Plasma Formulary~\cite{huba2019nrl}.}
   \label{fig:xs}
 \end{figure}
 
@@ -730,7 +730,7 @@ The current industrial paradigm, often referred to as Industry 4.0, extends this
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth,trim={0 0.8cm 0.4cm 0.6cm},clip]{Figures/Timeline_industrial.png}
+    \includegraphics[width=\linewidth]{Figures/Timeline_industrial.pdf}
     \caption{Schematic timeline of the four industrial revolutions, from mechanization and electrification to digital automation and Industry 4.0. The progression highlights the increasing integration of machines, computation, communication, and data driven decision making in industrial systems. Adapted from \cite{Sufian2021SmartFactory}.}
     \label{fig:industrial_revolutions}
 \end{figure}
@@ -768,8 +768,8 @@ After a maintenance action, the HI may be regarded as partially or fully restore
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\linewidth]{Figures/RUL.png}
-  \caption{Schematic visualization of HI, degradation, useful life, RUL, and corresponding points in time.}
+  \includegraphics[width=\linewidth]{Figures/RUL.pdf}
+  \caption{Schematic evolution of a health indicator (HI). The HI is observed up to the current time $t_1$ and predicted, with uncertainty, until it reaches the failure threshold at $t_{\mathrm{failure}}$, defining the useful life and the remaining useful life RUL$(t_1)$.}
   \label{fig:2-1}
 \end{figure}
 
@@ -777,40 +777,26 @@ A further distinction must be made between \emph{fault} and \emph{failure}. A fa
 
 From a strategic viewpoint, the European maintenance terminology standard EN 13306 distinguishes between \emph{corrective maintenance} and \emph{preventive maintenance}, the latter including \emph{predetermined maintenance} and \emph{condition based maintenance} \cite{DINEN13306}. This classification provides the formal terminology adopted throughout this dissertation. At the same time, the broader maintenance literature often presents maintenance development as an evolutionary progression from minimal intervention toward increasingly intelligent and integrated forms of asset management. In that broader perspective, one often encounters a roadmap extending from no maintenance, to reactive maintenance, preventive maintenance, predictive maintenance, proactive maintenance, and ultimately self maintenance or maintenance free systems. Although not all of these categories are formal terms in DIN~EN~13306, they are useful for positioning predictive maintenance within the wider state of the art.
 
-The main maintenance strategies can be compared in terms of when intervention takes place and how this affects machine performance and uptime. In particular, reactive maintenance is characterized by intervention only after functional failure, preventive maintenance by intervention before failure according to a predefined rule or interval, and predictive maintenance by intervention scheduled on the basis of monitored condition and inferred future degradation. These differences are illustrated schematically in Figs.~\ref{fig:reactive_maintenance}, \ref{fig:preventive_maintenance}, and \ref{fig:predictive_maintenance}.
+The main maintenance strategies can be compared in terms of when intervention takes place and how this affects machine performance and uptime. In particular, reactive maintenance is characterized by intervention only after functional failure, preventive maintenance by intervention before failure according to a predefined rule or interval, and predictive maintenance by intervention scheduled on the basis of monitored condition and inferred future degradation. These differences are illustrated schematically in Fig.~\ref{fig:maintenance_strategies}.
 
 At the most elementary level lies \emph{no maintenance}. This situation may arise either because no viable maintenance action exists for a specific application, or because intervention is economically unjustified, as in the case of disposable or single use items. Such cases fall outside the main scope of industrial maintenance optimization, whose purpose is precisely to preserve function in repairable or maintainable assets.
 
-\emph{Corrective maintenance}, often referred to in practice as \emph{reactive maintenance}, is performed only after failure has occurred, with the objective of restoring the required function of the item \cite{DINEN13306}. In industrial settings this strategy is frequently associated with so called fire fighting, where the maintenance crew intervenes urgently once a breakdown has already disrupted operation. Corrective maintenance can be acceptable for inexpensive, non critical, or redundant components whose failure has limited consequences for safety, availability, or production continuity. However, for complex and high value systems it is generally inefficient, since it implies unplanned downtime, emergency intervention, and potentially higher repair costs. This logic is illustrated in Fig.~\ref{fig:reactive_maintenance}, where maintenance is effectively triggered only after the asset has reached failure.
+\emph{Corrective maintenance}, often referred to in practice as \emph{reactive maintenance}, is performed only after failure has occurred, with the objective of restoring the required function of the item \cite{DINEN13306}. In industrial settings this strategy is frequently associated with so called fire fighting, where the maintenance crew intervenes urgently once a breakdown has already disrupted operation. Corrective maintenance can be acceptable for inexpensive, non critical, or redundant components whose failure has limited consequences for safety, availability, or production continuity. However, for complex and high value systems it is generally inefficient, since it implies unplanned downtime, emergency intervention, and potentially higher repair costs. This logic is illustrated in Fig.~\ref{fig:maintenance_strategies}a, where maintenance is effectively triggered only after the asset has reached failure.
 
-\emph{Preventive maintenance} comprises maintenance actions carried out before failure in order to reduce the probability of functional loss \cite{DINEN13306}. In the standardized terminology of DIN~EN~13306, this class includes both \emph{predetermined maintenance} and \emph{condition based maintenance}. The former corresponds to maintenance scheduled according to elapsed time, age, or number of operating cycles, without direct reference to the current observed condition of the item. Typical examples include periodic replacement of lubricants, scheduled overhaul of rotating machinery, or replacement of electrical contacts after a prescribed number of operations. Such approaches rely strongly on historical reliability information, often summarized through quantities such as the mean time between failures or the mean time to repair, and remain relevant whenever degradation mechanisms are reasonably regular, sensing is limited, or inspection is impractical. The corresponding intervention logic is sketched in Fig.~\ref{fig:preventive_maintenance}, where maintenance is carried out while the asset is still in usable condition.
+\emph{Preventive maintenance} comprises maintenance actions carried out before failure in order to reduce the probability of functional loss \cite{DINEN13306}. In the standardized terminology of DIN~EN~13306, this class includes both \emph{predetermined maintenance} and \emph{condition based maintenance}. The former corresponds to maintenance scheduled according to elapsed time, age, or number of operating cycles, without direct reference to the current observed condition of the item. Typical examples include periodic replacement of lubricants, scheduled overhaul of rotating machinery, or replacement of electrical contacts after a prescribed number of operations. Such approaches rely strongly on historical reliability information, often summarized through quantities such as the mean time between failures or the mean time to repair, and remain relevant whenever degradation mechanisms are reasonably regular, sensing is limited, or inspection is impractical. The corresponding intervention logic is sketched in Fig.~\ref{fig:maintenance_strategies}b, where maintenance is carried out while the asset is still in usable condition.
 
 Despite its widespread industrial use, predetermined maintenance has clear limitations. Since interventions are planned on the basis of average historical behaviour rather than the actual state of the individual asset, maintenance may be performed too early, causing unnecessary cost and downtime, or too late, failing to prevent degradation induced loss of function. For this reason, increasing attention has shifted toward strategies that explicitly exploit measured condition information.
 
 \emph{Condition based maintenance}~(CbM) uses observable indicators of the current condition of an item to determine whether maintenance is required \cite{DINEN13306,Lei2018}. Depending on the application, such indicators may be derived from vibration, temperature, acoustic emission, electrical quantities, visual inspection, or other sensor signals. In contrast to predetermined maintenance, CbM does not rely exclusively on nominal schedules, but instead uses evidence of actual deterioration to support intervention decisions. It therefore represents a transition from schedule driven maintenance toward state aware maintenance.
 
-Within this framework, \emph{predictive maintenance}~(PdM) can be understood as a prognosis oriented extension of condition based maintenance. Rather than limiting itself to assessing the present condition of the asset, predictive maintenance seeks to infer its future degradation trajectory and estimate quantities such as the remaining useful life. In other words, CbM answers the question of whether maintenance may be needed now, whereas PdM aims to estimate when maintenance will be needed and how urgently intervention should be planned. Predictive maintenance is therefore not merely based on monitoring, but on the integration of monitoring data, historical records, operational context, and prognostic models into maintenance decision support. Its value lies not only in reducing unexpected failures, but also in enabling better planning of inspections, spare parts, manpower, and system availability. This is illustrated in Fig.~\ref{fig:predictive_maintenance}, where maintenance is scheduled in an optimal window between the present time and the predicted failure point.
+Within this framework, \emph{predictive maintenance}~(PdM) can be understood as a prognosis oriented extension of condition based maintenance. Rather than limiting itself to assessing the present condition of the asset, predictive maintenance seeks to infer its future degradation trajectory and estimate quantities such as the remaining useful life. In other words, CbM answers the question of whether maintenance may be needed now, whereas PdM aims to estimate when maintenance will be needed and how urgently intervention should be planned. Predictive maintenance is therefore not merely based on monitoring, but on the integration of monitoring data, historical records, operational context, and prognostic models into maintenance decision support. Its value lies not only in reducing unexpected failures, but also in enabling better planning of inspections, spare parts, manpower, and system availability. This is illustrated in Fig.~\ref{fig:maintenance_strategies}c, where maintenance is scheduled in an optimal window between the present time and the predicted failure point.
 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.68\linewidth]{Figures/reactive.png}
-    \caption{Schematic representation of reactive maintenance, where intervention takes place only after failure has occurred.}
-    \label{fig:reactive_maintenance}
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.68\linewidth]{Figures/preventive.png}
-    \caption{Schematic representation of preventive maintenance, where intervention is scheduled before failure while the asset is still in usable condition.}
-    \label{fig:preventive_maintenance}
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.68\linewidth]{Figures/pdm.png}
-    \caption{Schematic representation of predictive maintenance, where monitoring and prognosis support maintenance scheduling before the predicted failure point.}
-    \label{fig:predictive_maintenance}
+    \includegraphics[width=\linewidth]{Figures/maintenance_strategies.pdf}
+    \caption{Schematic comparison of maintenance strategies. (a) Reactive maintenance intervenes only after failure. (b) Preventive maintenance intervenes at a predetermined time while the asset is still usable, leaving part of its useful life unused. (c) Predictive maintenance forecasts the degradation from the current condition and plans the intervention in a window just before the predicted failure. The red line marks the failure threshold.}
+    \label{fig:maintenance_strategies}
 \end{figure}
 
 In a broader technological perspective, predictive maintenance is often followed by the notion of \emph{proactive maintenance}. While predictive maintenance focuses on anticipating degradation and planning intervention before failure, proactive maintenance aims at identifying and mitigating the underlying causes of degradation themselves. This includes root cause analysis, feedback from maintenance to design and operation, and tighter integration between diagnosis, prognosis, and lifecycle management. In this sense, proactive maintenance shifts the objective from predicting failure to preventing the conditions that make failure likely in the first place.
@@ -857,7 +843,7 @@ From a practical perspective, the choice of modeling paradigm depends on several
 This spectrum perspective highlights that predictive maintenance is not tied to a single modeling philosophy. Instead, it encompasses a range of methodologies that can be selected or combined depending on the application context. The following subsections describe these approaches in more detail, starting with reliability based prognostics.
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.92\linewidth]{Figures/prognostic_spectrum.png}
+    \includegraphics[width=\linewidth]{Figures/prognostic_spectrum.pdf}
     \caption{Schematic spectrum of prognostic modeling paradigms for remaining useful life estimation, ranging from physics based modeling to data driven modeling, with hybrid approaches occupying an intermediate position.}
     \label{fig:prognostic_spectrum}
 \end{figure}
@@ -928,8 +914,8 @@ Within data driven prognostics, the choice of a specific RUL estimation strategy
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{Figures/rul_families.png}
-    \caption{Practical classification of common RUL estimation model families according to data availability. Adopted from \cite{MathWorksRULModels} }
+    \includegraphics[width=\linewidth]{Figures/rul_families.pdf}
+    \caption{Practical classification of common RUL estimation model families according to data availability. Adapted from~\cite{MathWorksRULModels}.}
     \label{fig:rul_model_selection}
 \end{figure}
 
