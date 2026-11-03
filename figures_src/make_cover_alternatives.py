@@ -67,7 +67,7 @@ for i, (r, q) in enumerate([(0.62, 3.3), (0.5, 2.9), (0.38, 2.5),
                             alpha=0.55 + 0.4 * core)
         lc.set_array(d + core * 1.2)
         ax.add_collection(lc)
-fig.savefig(ROOT / "background_fieldlines.jpg", dpi=300,
+fig.savefig(ROOT / "background.jpg", dpi=300,   # chosen cover (option B)
             pil_kwargs={"quality": 92})
 plt.close(fig)
 
