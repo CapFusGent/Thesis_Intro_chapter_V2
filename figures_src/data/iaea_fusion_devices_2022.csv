@@ -1,5 +1,6 @@
 # Source: IAEA, World Survey of Fusion Devices 2022 (CRCP-FUS-001), summary Tables 2-6.
-# Status as reported in 2022. TORPEX (Switzerland) omitted: status not given in Table 5.
+# Status as reported in 2022. TORPEX is missing from Table 5; its status is taken from Sect. 5.19 (Table 110).
+# Checked against the PDF tables on 2026-11-03.
 # JET ended operations at the end of 2023 (listed as operational in the 2022 survey).
 device,country,configuration,status,ownership,demo
 NOVA-FURG,Brazil,tokamak,operational,public,0
@@ -90,6 +91,7 @@ OMEGA,United States,laser / inertial,operational,public,0
 General Fusion,Canada,other,under construction,private,0
 KTX,China,pinch,operational,public,0
 TORIX,France,other,operational,public,0
+TORPEX,Switzerland,other,operational,public,0
 RFX,Italy,pinch,operational,public,0
 RELAX,Japan,pinch,operational,public,0
 UH-CTI,Japan,other,operational,public,0
