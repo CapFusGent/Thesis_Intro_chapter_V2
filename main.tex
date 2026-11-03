@@ -750,6 +750,67 @@ costly to recover from: the superconducting magnets of ITER, for instance,
 need several months to cool down again after a stop, so even a false alarm
 that triggers a shutdown is expensive~\cite{destino2021lofa}.
 
+\subsection{Economic impact of availability in the literature}
+\label{sec:availability_economics}
+
+Several studies have quantified how availability affects the economics of
+fusion power (Table~\ref{tab:availability_economics}). In an analysis
+of the European power plant conceptual studies, Ward et al.\ found the cost of
+electricity to scale with the availability $A$ as $(rF/A)^{0.6}$, with
+discount rate $r$ and learning factor $F$. Setting the discount rate aside, they
+ranked availability as the second most important factor for the economics,
+after technological learning. Since the
+replacement of in-vessel components drives availability, they concluded that
+blanket materials should tolerate a neutron fluence of more than
+\SI{5}{MWa/m^2}, and that divertors should last around two full-power
+years~\cite{ward2005economic}. Lindley et al.\ assume a capacity factor of
+56\,\% for early large tokamaks with pulsed operation and frequent component
+replacement, which gives electricity costs above US\$150/MWh; raising it to
+75\,\% together with lower construction costs brings advanced designs to
+US\$83--135/MWh, and they identify the capacity factor, with the discount rate
+and the capital cost, as a key cost driver~\cite{Lindley2023}.
+
+Schwartz et al.\ go beyond average availability and value fusion plants in a
+modelled decarbonised electricity system in 2050. With annual maintenance, a
+plant at 80\,\% availability keeps 91\,\% of the value of a maintenance-free
+plant, and at 65\,\% availability 80\,\%; shorter and more frequent outages
+keep more value than long ones at the same availability, and maintenance is
+best scheduled in spring and early summer, when electricity prices are
+lowest~\cite{schwartz2024maintenance}. All three studies point in the same
+direction: the cost of fusion electricity depends not only on how much time a
+plant spends in maintenance but also on how predictable and how well planned
+that maintenance is.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Examples from the literature of the economic impact of
+  availability on fusion power plants.}
+  \label{tab:availability_economics}
+  \begin{tabular}{p{0.2\linewidth}p{0.3\linewidth}p{0.4\linewidth}}
+    \hline
+    Study & Approach & Main finding on availability \\
+    \hline
+    Ward et al.~(2005)~\cite{ward2005economic} &
+    Cost model of the EU power plant conceptual studies &
+    Cost of electricity $\propto (rF/A)^{0.6}$; availability is the second
+    most important factor after learning; blanket fluence
+    $>\SI{5}{MWa/m^2}$ and divertor lifetime of about two full-power years
+    needed \\[3pt]
+    Lindley et al.~(2023)~\cite{Lindley2023} &
+    Cost estimates for magnetic confinement designs &
+    Capacity factor 56\,\% (early large designs, $>$US\$150/MWh) versus
+    75\,\% with lower construction cost (US\$83--135/MWh); capacity factor
+    is a key cost driver \\[3pt]
+    Schwartz et al.~(2024)~\cite{schwartz2024maintenance} &
+    Electricity-system model, decarbonised US grid in 2050 &
+    80\,\% availability with annual maintenance keeps 91\,\% of the value
+    of a maintenance-free plant, 65\,\% keeps 80\,\%; short, frequent,
+    spring-time outages keep the most value \\
+    \hline
+  \end{tabular}
+\end{table}
+
 \subsection{Consequences for monitoring and maintenance}
 
 Three consequences follow, and they form the starting point of this thesis.
