@@ -12,6 +12,14 @@
 \usepackage{comment}
 \usepackage{rotating} % sidewaysfigure for full-page landscape figures
 \usepackage[version=4]{mhchem} % for \ce{CO2}
+\newcommand\BackCoverPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{background_back.jpg}%
+\vfill
+}}}
 \newcommand\BackgroundPic{%
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
@@ -1072,4 +1080,33 @@ contribution chapters address it.}
 % Add further .bib files to the comma-separated list, e.g. {Intro,PdM,AI}.
 \bibliographystyle{unsrtnat}
 \bibliography{Intro,PdM}
+
+% ======================================================================
+% Back cover: side B (maintenance view) of the front-cover design
+% ======================================================================
+\cleardoublepage
+\thispagestyle{empty}
+\AddToShipoutPicture*{\BackCoverPic}
+\begin{tikzpicture}[remember picture, overlay]
+    \node[
+        fill=ugentblue!40!black,
+        fill opacity=0.75,
+        text opacity=1,
+        rounded corners=8pt,
+        inner sep=16pt,
+        text width=0.66\paperwidth,
+        align=left,
+        anchor=north
+    ] at ([yshift=-0.07\paperheight]current page.north) {
+        {\color{white}\small
+        \todecide{back-cover abstract, about 120 words}\par\medskip
+        Fusion power plants will only pay off if they are available: their
+        in-vessel components degrade under neutron loads and can only be
+        replaced remotely. This thesis develops data-driven predictive
+        maintenance on present-day devices such as JET, to anticipate
+        degradation and plan maintenance on DEMO and future fusion power
+        plants.\par}
+    };
+\end{tikzpicture}
+\null
 \end{document}
