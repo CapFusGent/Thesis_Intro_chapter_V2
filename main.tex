@@ -750,59 +750,6 @@ costly to recover from: the superconducting magnets of ITER, for instance,
 need several months to cool down again after a stop, so even a false alarm
 that triggers a shutdown is expensive~\cite{destino2021lofa}.
 
-\subsection{The cost of unavailability}
-\label{sec:cost_unavailability}
-
-The economic weight of availability follows from the levelised cost of
-electricity (LCOE), the lifetime cost of a plant divided by the net
-electricity it delivers over its lifetime. With the annualised capital cost
-$C_{\mathrm{cap}}$ (investment multiplied by the capital recovery factor), the
-fixed annual operation and maintenance cost $C_{\mathrm{O\&M}}$, the variable
-cost $c_{\mathrm{var}}$ per unit of energy, the net electric power
-$P_{\mathrm{net}}$ and the availability $A$, it can be written as
-\begin{equation}
-  \mathrm{LCOE} \approx
-  \frac{C_{\mathrm{cap}} + C_{\mathrm{O\&M}}}{P_{\mathrm{net}}\, A\, T_{\mathrm{yr}}}
-  + c_{\mathrm{var}},
-  \label{eq:lcoe}
-\end{equation}
-where $T_{\mathrm{yr}} = \SI{8760}{h}$. Availability appears in the
-denominator. Because fusion plants have a high capital cost and a low
-variable cost, the first term dominates and the LCOE scales approximately as
-$1/A$; studies of fusion plant economics therefore treat availability as one
-of the main cost drivers~\cite{mulder2021capacity,foster2024costs,Lindley2023}.
-Figure~\ref{fig:lcoe_availability} shows the consequence: at the 30\,\%
-minimum availability required for EU-DEMO~\cite{farquhar2019rm}, the
-capital-related cost of each megawatt-hour is 2.5 times higher than at the
-75\,\% assumed for commercial plants~\cite{schwartz2024maintenance}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\linewidth]{Figures/lcoe_availability.pdf}
-  \caption{Capital-related cost of electricity as a function of plant
-  availability, relative to an availability of 75\,\%, following the $1/A$
-  dependence of Eq.~\eqref{eq:lcoe}. The shaded band marks the 75--85\,\%
-  assumed in commercial fusion plant studies~\cite{schwartz2024maintenance};
-  the point at 30\,\% marks the minimum lifetime availability required for
-  EU-DEMO~\cite{farquhar2019rm}.}
-  \label{fig:lcoe_availability}
-\end{figure}
-
-The same relation gives the value of a single day of downtime. A plant
-delivering \SI{500}{MW} of net electric power, the order of magnitude
-foreseen for DEMO~\cite{federici2019demo}, produces
-\SI{12}{GWh} per day. At an assumed wholesale price of 50--100~euros per MWh, each day of unplanned
-downtime costs about 0.6--1.2 million euros in lost output, before any repair
-cost; an unplanned stop of the superconducting magnets, which takes several
-months to recover from~\cite{destino2021lofa}, would then cost of the order of
-\num{100} million euros. For comparison, the aviation industry estimates the
-cost of a large aircraft grounded for technical reasons at about \num{925000}
-euros per day~\cite{kefalas2023thesis}. The same reasoning applies to false
-alarms: an unnecessary shutdown costs as much output as a real one, which is
-why prediction quality and confidence matter as much as early detection.
-\tocheck{price range and 500 MW are illustrative assumptions; consider
-citing a market price source}
-
 \subsection{Consequences for monitoring and maintenance}
 
 Three consequences follow, and they form the starting point of this thesis.
