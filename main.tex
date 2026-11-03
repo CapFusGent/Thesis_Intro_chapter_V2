@@ -1,5 +1,6 @@
 \documentclass{book}
 \usepackage{amsmath}
+\usepackage{amssymb} % for \mathbb
 \usepackage{graphicx}
 \usepackage{siunitx}
 \usepackage{doi}
@@ -9,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{comment}
+\usepackage[version=4]{mhchem} % for \ce{CO2}
 \newcommand\BackgroundPic{%
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
@@ -704,7 +706,11 @@ magnetic field strength. Consequently, by selecting the appropriate ion cyclotro
 energy of the waves can be deposited at specific depths in the plasma~[36].
 
 \end{comment}
-\bibliographystyle{unsrtnat}
+
+% ======================================================================
+\chapter{Predictive maintenance}
+\label{ch:pdm}
+% ======================================================================
 
 This chapter introduces the main terminology and conceptual foundations of predictive maintenance and situates PdM within the broader framework of modern industrial analytics. It reviews the principal prognostic paradigms, namely physics based, data driven, and hybrid approaches, with particular attention to data driven health condition modelling and the workflow commonly adopted in contemporary PdM studies. The chapter also briefly discusses the C MAPSS (Commercial Modular Aero Propulsion System Simulation) dataset, which is widely used in the literature to illustrate current practice in data driven Remaining Useful Life estimation.
 
@@ -969,7 +975,9 @@ The appeal of hybrid prognostics lies in their balance between flexibility and s
 At the same time, hybrid models introduce additional design complexity. Their development requires both domain expertise and data science capabilities, and the interaction between physical and statistical components must be handled carefully. If the coupling is poorly designed, hybridization may introduce bias, numerical instability, or overconfidence rather than improving robustness. For this reason, hybrid prognostics are most effective when partial physical understanding exists but is insufficient on its own to describe the full variability of the system.
 
 More broadly, hybrid approaches reflect the current evolution of prognostics toward structured, modular, and uncertainty aware decision support. They are particularly relevant in industrial contexts where both monitoring data and engineering knowledge are available, but neither is sufficient on its own to support reliable maintenance decisions.
+% ======================================================================
+% Single bibliography for the whole thesis (BibTeX allows only one).
+% Add further .bib files to the comma-separated list, e.g. {Intro,PdM,AI}.
 \bibliographystyle{unsrtnat}
-\bibliography{PdM}
-\bibliography{Intro}
+\bibliography{Intro,PdM}
 \end{document}
