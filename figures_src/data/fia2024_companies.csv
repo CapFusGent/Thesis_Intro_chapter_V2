@@ -1,0 +1,50 @@
+company,founded,invest_200m
+# Read from the FIA Global Fusion Industry Report 2024, Fig. 15 (timeline of companies founded)
+# and Fig. 4 (companies with US$200M investment or more). Survey respondents only.
+# TO CHECK against the report: years read from the timeline graphic.
+Princeton Fusion Systems,1992,0
+TAE Technologies,1998,1
+General Fusion,2002,1
+LPPFusion,2003,0
+SHINE Technologies,2005,1
+Horne Technologies,2008,0
+Acceleron Fusion,2008,0
+Magneto-Inertial Fusion Technology,2009,0
+Tokamak Energy,2009,1
+First Light Fusion,2011,0
+Helion Energy,2013,1
+CTFusion,2015,0
+HB11 Energy,2017,0
+Zap Energy,2017,1
+Avalanche Energy,2018,0
+Commonwealth Fusion Systems,2018,1
+Compact Fusion Systems,2018,0
+HelicitySpace,2018,0
+ENN,2018,1
+Crossfield Fusion,2019,0
+Fuse,2019,0
+Kyoto Fusioneering,2019,0
+Novatron Fusion,2019,0
+Marvel Fusion,2019,0
+N.T. Tao,2019,0
+Type One Energy,2019,0
+Electric Fusion Systems,2020,0
+Renaissance Fusion,2020,0
+Energy Singularity,2021,0
+EX-Fusion,2021,0
+Focused Energy,2021,0
+Helical Fusion,2021,0
+NearStar Fusion,2021,0
+OpenStar Technologies,2021,0
+Deutelio,2022,0
+Thea Energy,2022,0
+Realta Fusion,2022,0
+Xcimer Energy,2022,0
+Blue Laser Fusion,2022,0
+Gauss Fusion,2022,0
+LaserFusionX,2022,0
+Stellarex,2022,0
+Terra Fusion Energy,2023,0
+Anonymous (stealth) 1,2023,0
+Anonymous (stealth) 2,2023,0
+Proxima Fusion,2023,0

@@ -181,8 +181,8 @@ introduces the physics of fusion and the conditions required to exploit it
 current state of the field (Section~\ref{sec:recent_fusion}). It then explains
 why availability and maintenance become decisive on the path from experimental
 devices to power plants (Section~\ref{sec:demo_availability}), and presents
-the Joint European Torus (JET), the device used as case study in this thesis
-(Section~\ref{sec:JET}).
+JET as the case study of this thesis (Section~\ref{sec:JET}). JET is first
+introduced in Section~\ref{sec:tokamak_jet} as an example of a tokamak.
 
 % ----------------------------------------------------------------------
 \section{Fusion in the future energy system}
@@ -529,8 +529,71 @@ and by radio-frequency waves. The main difficulty is to sustain the
 confinement time, which is limited by plasma instabilities that enhance
 transport and energy losses. Magnetic confinement, in tokamaks and
 stellarators, is currently regarded as the most promising route to fusion
-power. JET, the case study of this thesis, is a tokamak, and the remainder of
-this thesis is restricted to magnetic confinement.
+power, and the remainder of this thesis is restricted to it.
+
+\subsection{The tokamak: JET as an example}
+\label{sec:tokamak_jet}
+
+The tokamak is the most developed magnetic confinement concept, and the Joint
+European Torus (JET) is one of its best-known examples.
+JET, operated at the Culham Centre for Fusion Energy in the United Kingdom
+from 1983 to 2023, was one of the main facilities of the European fusion
+programme and one of the largest collaborative experiments in the world. It
+was designed to study plasmas in conditions and dimensions approaching those
+of a reactor and was later modified to resemble ITER, most notably with a
+beryllium and tungsten wall, so that its main task became the preparation of
+ITER operation.
+\tocheck{sources; end of operations date}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{Figures/tokamak_schematic.pdf}
+  \caption{Schematic of a tokamak. Toroidal field coils (blue) and the
+  current induced in the plasma by the central solenoid (purple) produce a
+  helical magnetic field (red line) on nested flux surfaces, shown in the
+  cut-open plasma (orange). Poloidal field coils (green) control the position
+  and shape of the plasma.}
+  \label{fig:tokamak}
+\end{figure}
+
+\paragraph{Magnetic configuration.}
+
+A charged particle in a magnetic field gyrates around the field line while
+moving freely along it, following a helical path. A straight magnetic field
+would therefore confine particles radially but lose them at the ends; bending
+the field into a torus removes the ends. In a tokamak, the toroidal field is
+produced by coils around the vessel; in JET, 32 D-shaped coils, whose shape
+reduces the bending stresses, produce a field of up to about \SI{4}{T}. A
+purely toroidal field is not sufficient, because its strength decreases with
+the major radius and the plasma drifts outwards. A current induced in the
+plasma, as in the secondary winding of a transformer, adds a poloidal field;
+the combined field lines are helical, which stabilises the plasma, and
+additional poloidal field coils control its position and shape. Stellarators
+obtain the helical field from a complex arrangement of external coils instead.
+The main elements are sketched in Figure~\ref{fig:tokamak}.
+\tocheck{sources; add a photograph of the JET vessel (EUROfusion media library, with credit)}
+
+\paragraph{In-vessel components and heating.}
+
+Particles and heat that escape the confined plasma reach the vessel walls and
+erode them; the eroded impurities cool and dilute the plasma. The plasma-facing
+components are designed to limit these effects. JET's first wall and limiters
+are made of beryllium, a low-$Z$ material that causes little radiation loss
+when it enters the plasma. The divertor, at the bottom of the vessel, receives
+the particles and power crossing the outermost closed magnetic surface,
+removes the helium ash and is made of tungsten, which withstands high heat
+loads.
+\tocheck{sources}
+
+Ohmic heating by the plasma current becomes less effective as the temperature
+rises, because the plasma resistivity decreases. JET was therefore equipped
+with neutral beam injection, which injects fast neutral D or T atoms that are
+ionised and slowed down in the plasma, and with ion cyclotron resonance
+heating, which deposits radio-frequency power at a chosen location in the
+plasma; their capacities were about \SI{34}{MW} and \SI{10}{MW},
+respectively. In a reactor, the $\alpha$ particles, which carry 20\,\% of the
+D--T energy, provide the remaining heating.
+\tocheck{sources for heating capacities}
 
 % ----------------------------------------------------------------------
 \section{Recent developments in fusion}
@@ -581,15 +644,11 @@ is increasingly evaluated in an industrial and market context.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Figures/companies_founded.png}
-
-    \vspace{0.5cm}
-
-    \includegraphics[width=0.55\textwidth]{Figures/companies_investment.png}
-    \caption{Private fusion industry. Top: timeline of company foundations and
-    number of active companies. Bottom: companies with more than US\$200
-    million of investment. Source: Fusion Industry
-    Association~\cite{fusion_industry_association_2024}.}
+    \includegraphics[width=\linewidth]{Figures/fusion_private_industry.pdf}
+    \caption{Private fusion companies by year of foundation. (a) Cumulative
+    number of companies. (b) Companies founded per year; dark bars mark the
+    companies that have raised more than US\$200 million. Data: survey
+    respondents of the Fusion Industry Association~\cite{fusion_industry_association_2024}.}
     \label{fig:fusion_private_industry}
 \end{figure}
 
@@ -674,64 +733,12 @@ operated for decades, such as JET, are the natural source of real operating
 data for this purpose.
 
 % ----------------------------------------------------------------------
-\section{The Joint European Torus as case study}
+\section{JET as a case study for predictive maintenance}
 \label{sec:JET}
 % ----------------------------------------------------------------------
-\note{Condensed from the earlier JET section. Most technical statements below
-still need sources (the old text used manual references [5], [21], [31]--[36]).
-Figures of the tokamak and of the JET vessel are still to be added.}
-
-JET, operated at the Culham Centre for Fusion Energy in the United Kingdom
-from 1983 to 2023, was one of the main facilities of the European fusion
-programme and one of the largest collaborative experiments in the world. It
-was designed to study plasmas in conditions and dimensions approaching those
-of a reactor and was later modified to resemble ITER, most notably with a
-beryllium and tungsten wall, so that its main task became the preparation of
-ITER operation.
-\tocheck{sources; end of operations date}
-
-\subsection{The tokamak configuration}
-
-A charged particle in a magnetic field gyrates around the field line while
-moving freely along it, following a helical path. A straight magnetic field
-would therefore confine particles radially but lose them at the ends; bending
-the field into a torus removes the ends. In a tokamak, the toroidal field is
-produced by coils around the vessel; in JET, 32 D-shaped coils, whose shape
-reduces the bending stresses, produce a field of up to about \SI{4}{T}. A
-purely toroidal field is not sufficient, because its strength decreases with
-the major radius and the plasma drifts outwards. A current induced in the
-plasma, as in the secondary winding of a transformer, adds a poloidal field;
-the combined field lines are helical, which stabilises the plasma, and
-additional poloidal field coils control its position and shape. Stellarators
-obtain the helical field from a complex arrangement of external coils instead.
-\tocheck{sources; figure of a tokamak and of JET}
-
-\subsection{In-vessel components and heating}
-
-Particles and heat that escape the confined plasma reach the vessel walls and
-erode them; the eroded impurities cool and dilute the plasma. The plasma-facing
-components are designed to limit these effects. JET's first wall and limiters
-are made of beryllium, a low-$Z$ material that causes little radiation loss
-when it enters the plasma. The divertor, at the bottom of the vessel, receives
-the particles and power crossing the outermost closed magnetic surface,
-removes the helium ash and is made of tungsten, which withstands high heat
-loads.
-\tocheck{sources}
-
-Ohmic heating by the plasma current becomes less effective as the temperature
-rises, because the plasma resistivity decreases. JET was therefore equipped
-with neutral beam injection, which injects fast neutral D or T atoms that are
-ionised and slowed down in the plasma, and with ion cyclotron resonance
-heating, which deposits radio-frequency power at a chosen location in the
-plasma; their capacities were about \SI{34}{MW} and \SI{10}{MW},
-respectively. In a reactor, the $\alpha$ particles, which carry 20\,\% of the
-D--T energy, provide the remaining heating.
-\tocheck{sources for heating capacities}
-
-\subsection{JET as a source of data for predictive maintenance}
-
-For this thesis, JET matters less for its plasma records than for its
-operating history. It ran for four decades with extensive instrumentation of
+JET, introduced in Section~\ref{sec:tokamak_jet} as an example of a tokamak, is
+the case study of this thesis. For this purpose, JET matters less for its
+plasma records than for its operating history. It ran for four decades with extensive instrumentation of
 its plasma and of its engineering subsystems, recorded its operation pulse by
 pulse, and operated with tritium and an ITER-like wall. This makes it one of
 the few sources of long-term operating data of a large fusion device. JET also
