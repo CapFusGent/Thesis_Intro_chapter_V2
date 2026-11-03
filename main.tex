@@ -706,5 +706,270 @@ energy of the waves can be deposited at specific depths in the plasma~[36].
 \end{comment}
 \bibliographystyle{unsrtnat}
 
+This chapter introduces the main terminology and conceptual foundations of predictive maintenance and situates PdM within the broader framework of modern industrial analytics. It reviews the principal prognostic paradigms, namely physics based, data driven, and hybrid approaches, with particular attention to data driven health condition modelling and the workflow commonly adopted in contemporary PdM studies. The chapter also briefly discusses the C MAPSS (Commercial Modular Aero Propulsion System Simulation) dataset, which is widely used in the literature to illustrate current practice in data driven Remaining Useful Life estimation.
+
+\section{The Role of Statistics in Industry: From Quality Evolution to Predictive Maintenance}
+
+The evolution of industrial systems has been accompanied by a parallel transformation in how quality, reliability, and performance are measured, interpreted, and managed. Early industrial practice relied mainly on inspection, where the objective was to verify whether a product satisfied predefined criteria after production. In textile manufacturing, for example, inspection was already formalized through sampling, grading, and record keeping practices. This activity is vividly illustrated by the Amsterdam cloth inspectors, the so called staalmeesters, depicted in Rembrandt’s Syndics of the Drapers’ Guild shown in Fig.~\ref{fig:staalmeesters}. Such practices reflect an early form of systematic quality assessment based on expert judgement and direct examination of the finished product \cite{Juran1995}.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/DeStaalmeesters.jpg}
+    \caption{Rembrandt, \emph{Syndics of the Drapers' Guild} (1662), depicting the Amsterdam cloth inspectors, or \emph{staalmeesters}, engaged in the evaluation of textile quality. The painting illustrates an early institutionalized form of quality inspection based on expert visual assessment and grading.}
+    \label{fig:staalmeesters}
+\end{figure}
+
+As industrial production became more mechanized and integrated, the limitations of end product inspection became increasingly apparent. A major conceptual shift occurred in the early twentieth century with the introduction of statistical process control by Walter A. Shewhart, who showed that process variation could be monitored statistically through control charts rather than assessed only through final inspection \cite{Shewhart1926}. This marked the transition from retrospective quality assessment to process oriented quality control. These principles were later extended into broader quality management frameworks, in which statistical methods became integral to planning, control, and continuous improvement \cite{GodfreyKenett2007}. With the digitalization of industrial systems, the focus expanded further from monitoring and control toward data driven modelling, simulation, and decision support. This broader transformation laid part of the conceptual foundation for modern industrial analytics, digital twins, and predictive maintenance, where operational data are used not only to assess past or present performance, but also to anticipate future degradation and support maintenance decisions.
+
+The current industrial paradigm, often referred to as Industry 4.0, extends this historical trajectory through pervasive sensing, connectivity, and cyber physical integration. As illustrated in Fig.~\ref{fig:industrial_revolutions}, the progression from mechanized production to electrified mass manufacturing, digital automation, and finally interconnected intelligent systems reflects a gradual shift toward increasing integration between physical processes, information flows, and decision making. In this latest stage, large scale sensor networks, industrial IoT infrastructures, and advanced analytics enable continuous observation of assets and processes across their lifecycle \cite{Smit2016Industry4,Sufian2021SmartFactory}. In this context, quality is no longer limited to the control of variation within production, but becomes an ongoing activity involving monitoring, diagnosis, prediction, and optimization. Measurement is no longer passive, but constitutes the primary interface through which physical systems are observed, interpreted, and controlled.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth,trim={0 0.8cm 0.4cm 0.6cm},clip]{Figures/Timeline_industrial.png}
+    \caption{Schematic timeline of the four industrial revolutions, from mechanization and electrification to digital automation and Industry 4.0. The progression highlights the increasing integration of machines, computation, communication, and data driven decision making in industrial systems. Adapted from \cite{Sufian2021SmartFactory}.}
+    \label{fig:industrial_revolutions}
+\end{figure}
+
+This transformation is particularly evident when viewed from the perspective of maintenance. For a long time, maintenance was treated as an unavoidable support activity: necessary for preserving productivity, yet rarely regarded as a strategic source of value. In many industrial settings, the implicit logic remained simple. If something failed, it had to be repaired. If experience suggested that failure might occur after a certain time, then service was scheduled periodically. Both views are limited. Reactive intervention occurs only once degradation has already reached an operationally relevant stage, whereas routine scheduled servicing often assumes deterioration without direct knowledge of the actual condition of the asset. In this sense, the most relevant question is no longer merely why maintenance should be performed regularly, but how much degradation has actually accumulated since the last intervention.
+
+This change in perspective becomes essential in complex industrial systems. Modern societies depend on assets whose degradation is inevitable and whose failure may lead not only to repair costs, but also to major operational losses, safety hazards, and environmental consequences \cite{KobbacyMurthy2008}. In such systems, maintenance can no longer be regarded as a secondary activity triggered only by failure. Instead, it must be understood as an integral part of system design, operation, and lifecycle management.
+
+From this viewpoint, the objective of maintenance is not simply to restore functionality after breakdown, but to preserve asset performance over time under multiple and often competing constraints. Maintenance management seeks to maximize availability and reliability while ensuring that production, quality, safety, and environmental requirements are satisfied in a cost effective manner \cite{PintelonParodiHerz2008}. This broader objective is sometimes described as total asset life cycle optimization. The phrase is useful because it makes explicit that maintenance is not an isolated technical task, but a systems problem involving engineering, operations, logistics, economics, and decision making under uncertainty.
+
+This systems perspective also clarifies why traditional maintenance strategies become inadequate as industrial complexity increases. In simple or low cost settings, corrective maintenance may be entirely acceptable. In more critical systems, preventive maintenance improves on pure reactivity by reducing the likelihood of catastrophic failure through scheduled intervention. Yet such schedules remain based on average assumptions and may therefore either miss relevant degradation or replace components prematurely. As assets become more automated, more interconnected, and more critical to production continuity, degradation can no longer be understood adequately through average lifetime models alone. It becomes necessary to observe the system more directly.
+
+Condition based maintenance emerged from this need. By using measurements that reflect the current state of the asset, it became possible to move beyond purely time based intervention and toward condition aware decision making. However, classical condition based maintenance often remains focused on the present state alone. It can indicate that deterioration is occurring, but it does not necessarily indicate how that deterioration will evolve or when intervention will become most advantageous. Predictive maintenance extends this logic by incorporating temporal modelling and prognosis. Its aim is not only to detect degradation, but to anticipate its future progression and support intervention before failure or unacceptable performance loss occurs.
+
+Industry 4.0 provides the technological environment in which this maintenance logic becomes scalable. Dense sensor networks, industrial IoT infrastructures, and advanced computational capabilities make it possible to monitor many assets continuously under heterogeneous operating conditions. In such a context, monitoring is no longer a passive background activity, nor merely a source of alarms that arrive once the problem is already operationally relevant. It becomes the primary means through which asset condition, degradation, and future risk can be inferred. The significance of predictive maintenance therefore lies not only in detecting faults, but in transforming monitoring into diagnosis, prognosis, and optimized intervention.
+
+Seen in this way, predictive maintenance is not simply a recent application of machine learning, but one of the clearest operational consequences of the broader industrial shift from inspection and control toward continuous observation and lifecycle optimization. The next section introduces the terminology required to position this transition more precisely within the maintenance literature.
+
+\section{Maintenance terminology and positioning of PdM within the state of the art}
+
+According to the European maintenance terminology standard(DIN EN 13306) \cite{DINEN13306,Strunz2012}, maintenance is defined as the
+\begin{quote}
+``Combination of all technical, administrative and managerial actions during the life cycle of an item intended to retain it in, or restore it to, a state in which it can perform the required function.''
+\end{quote}
+
+In this sense, maintenance is not limited to repair after malfunction, but encompasses the full set of organized actions required to preserve functionality, availability, and service life throughout operation . Within this terminology, an \emph{item} may denote a part, component, subsystem, or complete system considered as a unit for maintenance purposes. Since such items are subject to degradation, they may require inspection, restoration, or replacement during their operational lifetime \cite{DINEN13306}.
+
+The condition of an item is often represented through a \emph{Health Indicator} (HI), namely a scalar or vector quantity derived from observable data and intended to reflect the degradation state of the system \cite{Lei2018}. In many prognostic studies, the HI is normalized between 0 and 1, where 1 corresponds to a fully healthy condition and 0 to a fully degraded condition associated with functional failure. Within this abstraction, degradation can be interpreted as the progressive evolution of the HI from a nominal regime toward a critical threshold. Figure~\ref{fig:2-1} schematically illustrates this concept together with the notions of useful life and remaining useful life.
+
+The \emph{useful life} of an item denotes the time interval between the beginning of operation and the occurrence of failure. If the degradation state is observed at time $t_1$, the \emph{Remaining Useful Life} (RUL) is defined as the time left until failure, namely \cite{Si2011RUL}
+\[
+\mathrm{RUL}(t_1) = t_{\mathrm{failure}} - t_1.
+\]
+After a maintenance action, the HI may be regarded as partially or fully restored, depending on whether the intervention merely mitigates degradation or returns the item to a near nominal operating condition.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\linewidth]{Figures/RUL.png}
+  \caption{Schematic visualization of HI, degradation, useful life, RUL, and corresponding points in time.}
+  \label{fig:2-1}
+\end{figure}
+
+A further distinction must be made between \emph{fault} and \emph{failure}. A fault denotes an abnormal condition, defect, or deviation affecting the item, while operation may still remain possible, at least temporarily. A failure, by contrast, is the event or state in which the item can no longer perform its required function \cite{DINEN13306}. Faults may therefore precede failure, but the two concepts are not equivalent. This distinction is particularly important in diagnostic and prognostic frameworks, where the goal is often to detect faults early enough to avoid eventual failure.
+
+From a strategic viewpoint, the European maintenance terminology standard EN 13306 distinguishes between \emph{corrective maintenance} and \emph{preventive maintenance}, the latter including \emph{predetermined maintenance} and \emph{condition based maintenance} \cite{DINEN13306}. This classification provides the formal terminology adopted throughout this dissertation. At the same time, the broader maintenance literature often presents maintenance development as an evolutionary progression from minimal intervention toward increasingly intelligent and integrated forms of asset management. In that broader perspective, one often encounters a roadmap extending from no maintenance, to reactive maintenance, preventive maintenance, predictive maintenance, proactive maintenance, and ultimately self maintenance or maintenance free systems. Although not all of these categories are formal terms in DIN~EN~13306, they are useful for positioning predictive maintenance within the wider state of the art.
+
+The main maintenance strategies can be compared in terms of when intervention takes place and how this affects machine performance and uptime. In particular, reactive maintenance is characterized by intervention only after functional failure, preventive maintenance by intervention before failure according to a predefined rule or interval, and predictive maintenance by intervention scheduled on the basis of monitored condition and inferred future degradation. These differences are illustrated schematically in Figs.~\ref{fig:reactive_maintenance}, \ref{fig:preventive_maintenance}, and \ref{fig:predictive_maintenance}.
+
+At the most elementary level lies \emph{no maintenance}. This situation may arise either because no viable maintenance action exists for a specific application, or because intervention is economically unjustified, as in the case of disposable or single use items. Such cases fall outside the main scope of industrial maintenance optimization, whose purpose is precisely to preserve function in repairable or maintainable assets.
+
+\emph{Corrective maintenance}, often referred to in practice as \emph{reactive maintenance}, is performed only after failure has occurred, with the objective of restoring the required function of the item \cite{DINEN13306}. In industrial settings this strategy is frequently associated with so called fire fighting, where the maintenance crew intervenes urgently once a breakdown has already disrupted operation. Corrective maintenance can be acceptable for inexpensive, non critical, or redundant components whose failure has limited consequences for safety, availability, or production continuity. However, for complex and high value systems it is generally inefficient, since it implies unplanned downtime, emergency intervention, and potentially higher repair costs. This logic is illustrated in Fig.~\ref{fig:reactive_maintenance}, where maintenance is effectively triggered only after the asset has reached failure.
+
+\emph{Preventive maintenance} comprises maintenance actions carried out before failure in order to reduce the probability of functional loss \cite{DINEN13306}. In the standardized terminology of DIN~EN~13306, this class includes both \emph{predetermined maintenance} and \emph{condition based maintenance}. The former corresponds to maintenance scheduled according to elapsed time, age, or number of operating cycles, without direct reference to the current observed condition of the item. Typical examples include periodic replacement of lubricants, scheduled overhaul of rotating machinery, or replacement of electrical contacts after a prescribed number of operations. Such approaches rely strongly on historical reliability information, often summarized through quantities such as the mean time between failures or the mean time to repair, and remain relevant whenever degradation mechanisms are reasonably regular, sensing is limited, or inspection is impractical. The corresponding intervention logic is sketched in Fig.~\ref{fig:preventive_maintenance}, where maintenance is carried out while the asset is still in usable condition.
+
+Despite its widespread industrial use, predetermined maintenance has clear limitations. Since interventions are planned on the basis of average historical behaviour rather than the actual state of the individual asset, maintenance may be performed too early, causing unnecessary cost and downtime, or too late, failing to prevent degradation induced loss of function. For this reason, increasing attention has shifted toward strategies that explicitly exploit measured condition information.
+
+\emph{Condition based maintenance}~(CbM) uses observable indicators of the current condition of an item to determine whether maintenance is required \cite{DINEN13306,Lei2018}. Depending on the application, such indicators may be derived from vibration, temperature, acoustic emission, electrical quantities, visual inspection, or other sensor signals. In contrast to predetermined maintenance, CbM does not rely exclusively on nominal schedules, but instead uses evidence of actual deterioration to support intervention decisions. It therefore represents a transition from schedule driven maintenance toward state aware maintenance.
+
+Within this framework, \emph{predictive maintenance}~(PdM) can be understood as a prognosis oriented extension of condition based maintenance. Rather than limiting itself to assessing the present condition of the asset, predictive maintenance seeks to infer its future degradation trajectory and estimate quantities such as the remaining useful life. In other words, CbM answers the question of whether maintenance may be needed now, whereas PdM aims to estimate when maintenance will be needed and how urgently intervention should be planned. Predictive maintenance is therefore not merely based on monitoring, but on the integration of monitoring data, historical records, operational context, and prognostic models into maintenance decision support. Its value lies not only in reducing unexpected failures, but also in enabling better planning of inspections, spare parts, manpower, and system availability. This is illustrated in Fig.~\ref{fig:predictive_maintenance}, where maintenance is scheduled in an optimal window between the present time and the predicted failure point.
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.68\linewidth]{Figures/reactive.png}
+    \caption{Schematic representation of reactive maintenance, where intervention takes place only after failure has occurred.}
+    \label{fig:reactive_maintenance}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.68\linewidth]{Figures/preventive.png}
+    \caption{Schematic representation of preventive maintenance, where intervention is scheduled before failure while the asset is still in usable condition.}
+    \label{fig:preventive_maintenance}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.68\linewidth]{Figures/pdm.png}
+    \caption{Schematic representation of predictive maintenance, where monitoring and prognosis support maintenance scheduling before the predicted failure point.}
+    \label{fig:predictive_maintenance}
+\end{figure}
+
+In a broader technological perspective, predictive maintenance is often followed by the notion of \emph{proactive maintenance}. While predictive maintenance focuses on anticipating degradation and planning intervention before failure, proactive maintenance aims at identifying and mitigating the underlying causes of degradation themselves. This includes root cause analysis, feedback from maintenance to design and operation, and tighter integration between diagnosis, prognosis, and lifecycle management. In this sense, proactive maintenance shifts the objective from predicting failure to preventing the conditions that make failure likely in the first place.
+
+At the far end of this technological evolution lies \emph{self maintenance}, where monitoring, fault detection, diagnosis, decision making, and in some visions even repair execution are embedded directly within the machine. Although still largely aspirational for many industrial systems, this concept is useful as an upper bound of maintenance intelligence. It highlights that the long term trajectory of maintenance technology is moving toward increasing autonomy, tighter coupling between data and decisions, and deeper integration between equipment behaviour and lifecycle management.
+
+Overall, the evolution from corrective maintenance to preventive, condition based, predictive, proactive, and eventually self maintenance reflects a progressive increase in the amount of information exploited for decision making. Corrective maintenance reacts to loss of function after it has occurred. Predetermined maintenance acts in advance, but without direct knowledge of the actual condition of the individual asset. Condition based maintenance incorporates present state information. Predictive maintenance extends this logic to the future by forecasting degradation and supporting timely intervention. Proactive and self maintenance go even further by embedding causal understanding, adaptation, and autonomy into the maintenance process.
+
+For the purposes of this dissertation, the formal taxonomy of DIN~EN~13306 is retained, with predictive maintenance treated as a prognosis oriented form of condition based maintenance. This positioning is especially relevant for complex, high value, and safety critical systems, where maintenance decisions must rely not only on whether degradation is present, but also on how it is expected to evolve. The transition from time based or failure reactive intervention toward condition informed and forecast informed decision making therefore provides the conceptual foundation for the diagnostic and prognostic methods discussed in the following sections.
+
+\subsection{Diagnostics, Prognostics and PdM requirements}
+
+Within predictive maintenance, \emph{diagnostics} and \emph{prognostics} are the two main processes used to assess system health. Diagnostics concerns the identification of the current condition of the system and aims to determine whether an abnormal operating state exists, where it is located, and what its cause is. It is commonly described through three stages: fault detection, fault isolation, and fault identification. Fault detection determines whether a deviation from normal operation is present. Fault isolation localizes the abnormality to a component, subsystem, or physical process. Fault identification seeks to determine the nature or root cause of the fault \cite{Lei2018}.
+
+Prognostics, by contrast, concerns the future evolution of system health. Its central objective is to estimate how degradation will develop over time and, in particular, to infer the time remaining before failure or before a critical performance threshold is reached \cite{Si2011RUL,Lei2018}. Prognostics is therefore inherently more demanding than diagnostics, since it requires not only interpreting the current state of the item, but also extrapolating its future evolution under uncertainty. Although RUL estimation is one of its principal outputs, prognostics should not be reduced to RUL prediction alone. A complete prognostic framework should also relate predicted degradation to its physical or operational causes, quantify uncertainty, and support maintenance decisions within a relevant planning horizon.
+
+Predictive maintenance can thus be understood as the integration of condition monitoring, diagnostics, and prognostics into a unified decision support framework. Condition monitoring provides observable proxies for latent degradation, diagnostics interprets these observations in terms of the current health state, and prognostics projects their implications into the future. This conceptual structure forms the basis for the modelling approaches discussed in the following subsection.
+
+For a predictive maintenance approach to be technically sound and industrially relevant, it must satisfy a small set of core requirements that translate maintenance objectives into modelling constraints. Recent requirement oriented reviews emphasize that practical predictive maintenance is shaped not only by forecasting accuracy, but also by explainability, sample efficiency, scalability, and the ability to operate under heterogeneous industrial conditions \cite{MaFlaniganBerges2024Requirements,NordalElThalji2021,NunesSantosRocha2023}. First, the approach should be transferable across assets and operating contexts, rather than relying on machine specific heuristics with limited reuse. This is particularly important in industrial environments where equipment configurations, sensing layouts, and operational regimes vary substantially.
+
+Second, the framework must remain applicable under realistic data conditions, including noise, missing values, asynchronous measurements, changing regimes, and limited labelled failure data. Since run to failure trajectories are often scarce in practice, the approach should also be capable of extracting useful degradation information from predominantly unlabeled or weakly labeled data \cite{NunesSantosRocha2023,WenEtAl2022}. A further requirement concerns interpretability and actionability. Predictive outputs are only useful if they can support real maintenance decisions, which means that health assessments and prognostic estimates must be understandable, auditable, and compatible with maintenance workflows \cite{MaFlaniganBerges2024Requirements,LiVerhagenCurran2020}.
+
+Robustness is equally essential. Apparent performance under controlled conditions is insufficient if the model becomes unstable under operational variability, concept drift, or imperfect sensing. The framework must therefore preserve stable behaviour under the disturbances that characterize real industrial deployments. In parallel, scalability and modularity are necessary because modern predictive maintenance systems operate on high dimensional multivariate data and often need to evolve as equipment, sensors, or production requirements change. Separating data acquisition, feature or health indicator construction, prognosis, and decision support facilitates both reuse and long term maintainability \cite{MaFlaniganBerges2024Requirements,MathWorksPdMWorkflow}.
+
+Finally, predictive maintenance must be economically justified. Its value lies not only in improving prognostic accuracy, but in supporting better intervention timing, reducing unnecessary maintenance, avoiding costly failures, and exploiting useful life more effectively \cite{MaFlaniganBerges2024Requirements,WenEtAl2022}. 
+
+
+
+
+\section{Prognostic Modeling Paradigms: From Reliability to Data Driven Approaches}
+
+Prognostic modeling in predictive maintenance (PdM) encompasses a broad spectrum of methodologies that differ in their underlying assumptions, data requirements, and level of physical interpretability. Rather than forming strictly disjoint categories, these approaches can be understood as points along a continuum that ranges from purely statistical descriptions of failure at the population level to fully data driven representations learned from high dimensional observations. This conceptual spectrum is illustrated in Fig.~\ref{fig:prognostic_spectrum}, which positions reliability based, physics based, hybrid, and data driven approaches according to the degree to which they rely on explicit physical knowledge or empirical learning.
+
+At one end of this spectrum lie reliability based approaches, which model failure behavior using statistical distributions inferred from historical time to event data. These methods do not attempt to describe the internal state of the system or the underlying degradation mechanisms. Instead, they treat failure as a stochastic event characterized by probability distributions. A central framework within this class is survival analysis, where the time to failure is modeled through quantities such as the survival function, hazard rate, and cumulative failure probability. These approaches are particularly effective when large amounts of homogeneous failure data are available and when individual asset variability can be neglected \cite{Alabdallah2023}.
+
+Moving along the spectrum, model based approaches introduce explicit representations of system degradation through physics based or first principles models. In this setting, failure is no longer treated purely as a statistical event, but as the consequence of an evolving internal state governed by physical laws. The prognostic task consists of estimating this latent degradation state and predicting its future evolution. Such approaches provide strong interpretability and extrapolation capability, especially when degradation mechanisms are well understood. However, their applicability is often limited by the difficulty of deriving accurate models for complex systems and by the need for system specific parameter identification \cite{Vachtsevanos2006}. As shown in Fig.~\ref{fig:prognostic_spectrum}, representative examples include physical models and state estimation frameworks such as Kalman filtering.
+
+At the opposite end of the spectrum lie data driven approaches, which rely on statistical learning techniques to infer degradation patterns directly from operational data. These methods do not require explicit knowledge of the underlying physics and are therefore well suited to systems characterized by complexity, nonlinearity, or partially unknown behavior. By leveraging historical and real time data, data driven models can learn mappings between observed signals and degradation states, enabling both diagnostics and prognostics. However, this flexibility comes at the cost of reduced interpretability and increased dependence on data quality and availability \cite{Carvalho2019}. Typical examples, also indicated in Fig.~\ref{fig:prognostic_spectrum}, include similarity based models, survival models, and degradation models.
+
+Between these two extremes, hybrid approaches seek to combine the strengths of physics based and data driven modeling. For instance, physical models may be used to constrain or regularize data driven models, while machine learning techniques may be employed to compensate for unmodeled dynamics or parameter uncertainties. Such approaches are particularly relevant in modern industrial contexts, where partial physical knowledge is available but insufficient to fully describe system behavior. In Fig.~\ref{fig:prognostic_spectrum}, this intermediate position is represented by examples such as physics informed neural networks and simulator based residual learning.
+
+From a practical perspective, the choice of modeling paradigm depends on several factors, including data availability, system complexity, required interpretability, and computational constraints. Reliability based approaches are often preferred for large populations of similar components with limited sensing capabilities. Model based approaches are suited to safety critical systems with well understood degradation mechanisms. Data driven approaches are increasingly adopted in Industry 4.0 environments, where large volumes of heterogeneous sensor data are available.
+
+This spectrum perspective highlights that predictive maintenance is not tied to a single modeling philosophy. Instead, it encompasses a range of methodologies that can be selected or combined depending on the application context. The following subsections describe these approaches in more detail, starting with reliability based prognostics.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Figures/prognostic_spectrum.png}
+    \caption{Schematic spectrum of prognostic modeling paradigms for remaining useful life estimation, ranging from physics based modeling to data driven modeling, with hybrid approaches occupying an intermediate position.}
+    \label{fig:prognostic_spectrum}
+\end{figure}
+
+
+
+\subsection{Reliability-Based Approaches}
+
+Reliability-based prognostic approaches correspond to the statistical end of the prognostic modeling spectrum. These methods represent one of the earliest and conceptually simplest forms of failure prediction \cite{Si2011RUL}. They are also referred to as experience-based prognostics, life usage models, or statistical reliability approaches \cite{Vachtsevanos2006}. Despite terminological differences, they share a common principle: failure behaviour is inferred from historical time-to-event data collected from a population of similar assets, without explicitly modeling the internal degradation mechanisms.
+
+Within this framework, failure is treated as a stochastic event characterized by a probability distribution. The fundamental assumption is that the time-to-failure of similar components follows a parametric statistical distribution whose parameters can be estimated from historical failure or maintenance records \cite{Ebeling2010}. Once fitted, this distribution enables probabilistic inference regarding the expected lifetime of a new asset drawn from the same population.
+
+A central formalism in this class of methods is survival analysis, where the time-to-failure is described through the survival function
+\[
+R(t) = P(T > t),
+\]
+which represents the probability that the system remains operational beyond time $t$. From this quantity, additional measures such as the hazard rate and cumulative failure probability can be derived. The conditional expected Remaining Useful Life (RUL) at time $t$ is expressed as
+\[
+\mathbb{E}[T - t \mid T > t],
+\]
+providing an estimate of the expected residual lifetime given that failure has not yet occurred.
+
+Commonly employed lifetime distributions include the exponential, Weibull, and log-normal distributions \cite{Ebeling2010}. Among these, the Weibull distribution is particularly prevalent due to its flexibility in representing increasing, constant, or decreasing hazard rates, making it suitable for a wide range of failure behaviours.
+
+The main advantage of reliability-based approaches lies in their simplicity and low modeling complexity. They require limited knowledge of system physics and are computationally inexpensive. Moreover, being grounded in statistical inference, they naturally provide uncertainty quantification in the form of confidence intervals or probability distributions, which is valuable for risk-informed decision making.
+
+However, these approaches rely on several restrictive assumptions. First, they require sufficiently large and representative historical datasets of failure events in order to estimate distribution parameters reliably. This requirement is often difficult to satisfy in safety-critical systems, where failures are rare by design. Second, reliability-based models treat assets as statistically identical and therefore neglect unit-specific operating conditions and degradation trajectories. In particular, they do not incorporate real-time condition monitoring data and assume homogeneous degradation behaviour across the population \cite{Vachtsevanos2006}.
+
+For these reasons, reliability-based prognostics are most suitable for non-critical, mass-produced components with limited variability and where condition monitoring is unavailable or economically unjustified. In practice, they are commonly used to support predetermined maintenance policies rather than condition-aware or dynamically optimized maintenance strategies.
+
+\subsection{Model-Based Approaches}
+
+Model based prognostic approaches, also referred to as physics based or physics of failure methods, rely on explicit mathematical representations of degradation mechanisms \cite{Lei2018,Si2011RUL}. In contrast to reliability based approaches, which describe failure statistically at the population level, model based methods seek to represent the evolution of damage within an individual asset through equations grounded in physical principles, material behaviour, or engineering knowledge.
+
+The central idea is that failure is the consequence of an evolving internal state rather than merely a stochastic event. Let $X(t)$ denote a latent degradation state, such as crack length, corrosion depth, accumulated fatigue damage, or thermal aging level. In a general continuous time formulation, the state evolution may be written as
+\[
+\frac{dX}{dt} = f(X(t),u(t),\theta) + w(t),
+\]
+where $u(t)$ represents operational inputs or stresses, $\theta$ denotes physical parameters, and $w(t)$ accounts for process uncertainty. When measurements $y(t)$ are available, they are related to the degradation state through
+\[
+y(t) = h(X(t)) + v(t),
+\]
+where $v(t)$ denotes measurement noise. The prognostic task then consists of estimating the current degradation state and propagating it forward until a critical threshold $X_{\mathrm{crit}}$ is reached, which defines functional failure.
+
+This framework encompasses a wide range of degradation descriptions. Classical examples include fatigue crack growth models, corrosion kinetics, creep damage laws, and thermal aging formulations \cite{Vachtsevanos2006}. In such cases, the prognostic model is directly linked to the underlying mechanism responsible for performance loss. When these mechanisms are well understood and the relevant parameters can be identified with sufficient accuracy, model based approaches offer strong interpretability and meaningful extrapolation capability beyond the range of previously observed data.
+
+When the degradation state is not directly measurable, model based prognostics often rely on recursive state estimation techniques to infer it from noisy observations. In linear Gaussian settings, this role is classically played by the Kalman filter, whereas nonlinear or non Gaussian problems may require extensions such as the Extended Kalman Filter, the Unscented Kalman Filter, or Particle Filters \cite{Kalman1960,Maybeck1979,Julier1997,Arulampalam2002}. These methods are particularly relevant when a state space degradation model is available and online updating of the latent state is required.
+
+The principal strengths of model based approaches lie in their interpretability, their explicit incorporation of engineering knowledge, and their potential for extrapolation under varying operating conditions. They are therefore particularly attractive in safety critical applications, where the physical meaning of a prediction is important and purely empirical approaches may be difficult to justify. At the same time, these methods require detailed knowledge of failure mechanisms, material properties, and boundary conditions, which may be expensive or infeasible to obtain for highly complex systems \cite{Lei2018}. In addition, unmodeled dynamics, uncertain parameters, or incomplete knowledge of operating stresses may lead to significant model mismatch. As system complexity and variability increase, the practical applicability of purely model based prognostics may therefore become limited.
+
+For these reasons, model based approaches are most effective when degradation mechanisms are sufficiently well understood and can be represented through validated equations. In systems characterized by partial physical knowledge, heterogeneous operating conditions, or rich measurement data, they are often complemented or replaced by data driven and hybrid approaches, which are discussed next.
+
+
+
+\subsection{Data Driven Predictive Maintenance}
+
+Data driven predictive maintenance denotes a prognostic paradigm in which degradation assessment and Remaining Useful Life estimation are inferred primarily from observed data rather than from explicit first principles models. Instead of formulating the degradation process directly through physical laws, the approach seeks to learn statistical relationships between condition monitoring observations and the health evolution of the asset. In this setting, the available measurements up to time $t$, denoted by $\mathcal{D}_t$, are used to construct a mapping
+\[
+\mathcal{D}_t \rightarrow \hat{H}(t)
+\qquad \text{or} \qquad
+\mathcal{D}_t \rightarrow \widehat{RUL}(t),
+\]
+where $\hat{H}(t)$ denotes an estimated Health Indicator and $\widehat{RUL}(t)$ the predicted Remaining Useful Life. The mapping is learned from historical operational data, typically consisting of multivariate sensor trajectories and, when available, run to failure observations or maintenance records.
+
+The conceptual attractiveness of data driven approaches lies in their relative independence from explicit physical modeling. In many industrial systems, degradation mechanisms are only partially understood, highly nonlinear, or too complex to describe exhaustively through validated equations. Under these conditions, statistical learning provides a practical alternative by extracting regularities directly from measured data. Temporal dependencies, correlations across sensors, and recurring degradation patterns can be exploited even when the underlying physics is incomplete or only partially known \cite{Lei2018,Carvalho2019}.
+
+Within data driven prognostics, the choice of a specific RUL estimation strategy depends strongly on the structure of the available data. In practice, three broad estimator families are commonly distinguished: survival models, degradation models, and similarity models. As illustrated in Fig.~\ref{fig:rul_model_selection}, survival models are most appropriate when the available information consists primarily of lifetime or failure time data; degradation models are suitable when a condition indicator can be tracked over time and a failure threshold is known; and similarity models are particularly useful when complete run to failure trajectories from comparable assets are available. This classification is operational rather than conceptual, since it reflects the structure of the observations used for prognostics rather than a strict separation of modeling philosophies.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/rul_families.png}
+    \caption{Practical classification of common RUL estimation model families according to data availability. Adopted from \cite{MathWorksRULModels} }
+    \label{fig:rul_model_selection}
+\end{figure}
+
+From a methodological perspective, data driven PdM includes several families of models. Classical statistical approaches rely on regression methods, stochastic degradation models, proportional hazard formulations, or Bayesian updating schemes \cite{VerhagenDeBoer2018,KalbfleischPrentice1980}. These methods often preserve a relatively high degree of interpretability and may provide uncertainty estimates, but they usually require assumptions on degradation structure that can become restrictive in strongly nonlinear settings. Machine learning approaches, by contrast, learn the relation between observed features and health targets directly from data \cite{Lei2018,Carvalho2019}. When labeled degradation or failure data are available, such methods can be used for direct health assessment or RUL estimation. More recently, deep learning methods have extended this framework by learning hierarchical representations from high dimensional sensor data. Convolutional architectures can identify local signal patterns, recurrent models can capture temporal structure, and attention based mechanisms can emphasize information that is most relevant to degradation progression \cite{Elsherif2025}.
+
+A central concept in many data driven approaches is the construction of a health indicator. Rather than predicting Remaining Useful Life directly from raw signals, many methods first transform the measurements into a lower dimensional representation that reflects the degradation state of the asset. In signal based prognostics, this representation is often built from features extracted in different domains. Time domain features summarize the statistical structure of the measured signal and typically include quantities such as the mean, standard deviation or variance, skewness, root mean square, and kurtosis. These descriptors can act as condition indicators when their values evolve systematically as degradation progresses. Frequency domain features, by contrast, are obtained after transforming the signal into the spectral domain and are particularly useful for periodic signals and rotating machinery, where quantities such as peak amplitudes, peak frequencies, mean frequency, harmonics, power bandwidth, spectral entropy, and spectral kurtosis can reveal fault specific behaviour that may remain hidden in the raw time series. More generally, when degradation affects both the temporal and spectral structure of the signal, time frequency descriptors can also be constructed to capture changes in spectral content over time \cite{MathWorksPdMebook}. 
+
+Such features may be handcrafted on the basis of statistical or signal processing insight, or they may be replaced by learned latent embeddings obtained through machine learning models. Regardless of the construction method, a useful health indicator should be sensitive to degradation progression, relatively stable under normal operational variability, robust to measurement noise, and informative for subsequent maintenance decisions.
+
+The practical appeal of data driven predictive maintenance is substantial. First, it is applicable to systems for which high fidelity physical models are unavailable, incomplete, or computationally impractical. Second, it is naturally suited to heterogeneous sensing environments, where multiple signal types must be integrated into a unified analytical framework. Third, once developed and validated, data driven models can often be deployed across fleets of similar assets, making them attractive in large scale industrial settings. Finally, they can be adapted to evolving operating conditions through retraining, recalibration, or online updating strategies. These properties explain why data driven approaches have become particularly prominent in industrial environments characterized by dense sensing, digitalization, and increasing data availability \cite{Lei2018,Carvalho2019}.
+
+At the same time, these methods face important limitations. A first challenge concerns the scarcity of labeled failure data. In practice, industrial assets are rarely allowed to run to catastrophic failure, which means that supervised learning often has access to only a small number of informative run to failure trajectories. A second challenge is operational variability. Degradation behaviour may differ significantly across regimes, loads, and environmental conditions, introducing non stationarity into the data and limiting the transferability of models trained under narrower conditions. A third difficulty concerns interpretability. Complex learning architectures may achieve strong predictive performance while providing limited insight into the physical or operational meaning of their predictions. In safety critical or high value settings, this may reduce trust and hinder adoption. Finally, uncertainty quantification remains essential. Maintenance planning depends not only on point estimates of Remaining Useful Life, but also on the confidence that can be assigned to those estimates. Many learning based models, however, provide deterministic outputs without calibrated uncertainty bounds \cite{Si2011RUL,Lei2018}.
+
+For these reasons, data driven approaches should not be understood as a universal replacement for model based methods, but as a complementary and highly flexible family of techniques. Their main strength lies in their ability to exploit information embedded in operational data when physical knowledge is incomplete, system complexity is high, or degradation mechanisms are difficult to model explicitly. This makes them particularly relevant to modern industrial contexts and especially suitable for applications in which monitoring data are rich but labels are limited.
+
+Within this dissertation, data driven modeling is adopted as the primary prognostic framework. This choice is motivated by the characteristics of the considered datasets, where degradation behaviour is observed through condition monitoring data under realistic industrial constraints, including limited failure examples, operational variability, and the need for robust and interpretable health assessment. Particular emphasis is therefore placed on operation specific degradation behaviour, limited label scenarios, and methods capable of extracting informative structure directly from observed data.
+
+
+\subsection{Hybrid Approaches}
+
+Hybrid prognostic approaches combine model based and data driven methodologies in order to exploit the complementary strengths of both paradigms \cite{Lei2018,Si2011RUL}. Their motivation is straightforward. Purely physics based models may suffer from incomplete knowledge of degradation mechanisms, uncertain parameters, or unmodeled dynamics, whereas purely data driven models may struggle with limited failure data, operational variability, and lack of interpretability. Hybrid approaches attempt to bridge this gap by integrating physical structure with statistical learning.
+
+A first class of hybrid methods incorporates physical knowledge directly into the learning process. In this setting, a data driven model is trained under constraints derived from known physical principles or degradation laws. If $f_\theta(\mathcal{D}_t)$ denotes a learned estimator of the degradation state or Remaining Useful Life, physical consistency may be encouraged by imposing structural properties such as monotonic degradation or by augmenting the training objective with a regularization term,
+\[
+\mathcal{L} = \mathcal{L}_{\mathrm{data}} + \lambda \mathcal{L}_{\mathrm{physics}},
+\]
+where $\mathcal{L}_{\mathrm{physics}}$ penalizes violations of known physical relationships and $\lambda$ controls the strength of the constraint. Such formulations are especially useful when failure data are scarce, since prior knowledge reduces the effective hypothesis space and can improve generalization.
+
+A second strategy uses data driven models to augment an existing physical model. In this case, the mechanistic model provides a baseline estimate of degradation, while a learned residual term captures discrepancies between the modeled and observed behaviour. A generic formulation is
+\[
+X(t) = X_{\mathrm{phys}}(t) + r_\phi(\mathcal{D}_t),
+\]
+where $X_{\mathrm{phys}}(t)$ is the prediction of the physical model and $r_\phi(\mathcal{D}_t)$ is a learned correction term. This approach preserves the interpretability of the physical backbone while allowing the model to compensate for parameter uncertainty, unmodeled interactions, or simplified assumptions in the governing equations.
+
+A third possibility is to combine physical and data driven predictions at the level of inference. Here the two estimators are developed separately and then fused, for example through probabilistic weighting or Bayesian combination. If $\hat{RUL}_{\mathrm{phys}}$ and $\hat{RUL}_{\mathrm{data}}$ denote two complementary estimators, the resulting posterior can be written schematically as
+\[
+p(RUL \mid \mathcal{D}_t) \propto p(RUL \mid \mathrm{physics})\, p(RUL \mid \mathrm{data}),
+\]
+so that the final estimate reflects both sources of information. This strategy is attractive when physical knowledge and data are available at different fidelities or scales and cannot easily be embedded into a single model.
+
+The appeal of hybrid prognostics lies in their balance between flexibility and structure. Compared with purely data driven models, they can reduce data requirements and improve extrapolation by incorporating prior physical knowledge. Compared with purely model based approaches, they can better accommodate variability, unknown dynamics, and measurement rich environments. They also tend to offer a better compromise between predictive performance and interpretability, which is particularly important in safety critical settings.
+
+At the same time, hybrid models introduce additional design complexity. Their development requires both domain expertise and data science capabilities, and the interaction between physical and statistical components must be handled carefully. If the coupling is poorly designed, hybridization may introduce bias, numerical instability, or overconfidence rather than improving robustness. For this reason, hybrid prognostics are most effective when partial physical understanding exists but is insufficient on its own to describe the full variability of the system.
+
+More broadly, hybrid approaches reflect the current evolution of prognostics toward structured, modular, and uncertainty aware decision support. They are particularly relevant in industrial contexts where both monitoring data and engineering knowledge are available, but neither is sufficient on its own to support reliable maintenance decisions.
+\bibliographystyle{unsrtnat}
+\bibliography{PdM}
 \bibliography{Intro}
 \end{document}
