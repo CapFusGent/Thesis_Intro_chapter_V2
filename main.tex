@@ -1169,10 +1169,10 @@ fatigue damage or thermal ageing, whose evolution may be written as
   \label{eq:state}
 \end{equation}
 where $u(t)$ represents operational inputs or stresses, $\theta$ physical
-parameters and $w(t)$ process uncertainty. Measurements $y(t)$ relate to the
+parameters and $w(t)$ process uncertainty. Measurements $z(t)$ relate to the
 state through
 \begin{equation}
-  y(t) = h\bigl(X(t)\bigr) + v(t),
+  z(t) = h\bigl(X(t)\bigr) + v(t),
   \label{eq:measurement}
 \end{equation}
 with measurement noise $v(t)$. Prognosis consists of estimating the current
@@ -1240,7 +1240,7 @@ and health targets directly from data~\cite{Lei2018,Carvalho2019}, and deep
 learning extends this to hierarchical representations of high-dimensional
 signals: convolutional networks capture local signal patterns, recurrent
 networks temporal structure, and attention mechanisms the information most
-relevant to degradation~\cite{Elsherif2025}.
+relevant to degradation~\cite{Elsherif2025}. These methods, and the way they are adapted to scarce labels and changing conditions, are presented in Chapter~\ref{ch:ai}.
 
 \paragraph{Health indicators.}
 Many methods first compress the measurements into a health indicator rather
